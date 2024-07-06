@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "481113768529",
+    "project_id": "bikercommunity-a9235",
+    "storage_bucket": "bikercommunity-a9235.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481113768529:android:ee3739abc98b0180deee70",
+        "android_client_info": {
+          "package_name": "com.bikercommunityapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481113768529-ln71u9kc27mkh8dj3ma1uq7remhqj6al.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bikercommunityapp",
+            "certificate_hash": "b0a6747962df21242d31972c5772264a772f161b"
+          }
+        },
+        {
+          "client_id": "481113768529-ttcbohg78e4orj12idf6jfqrqemef4v5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiBkfhpzqX2Xd1l9KuJP6tvSQfq-DAvY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481113768529-ttcbohg78e4orj12idf6jfqrqemef4v5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
