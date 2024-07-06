@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet ,Image} from 'react-native';
+import { View, TextInput, Button, StyleSheet ,Image,ActivityIndicator} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 function PhoneAuthentication({navigation}){
     //initialising all the states
-    const [phoneNumber, setPhoneNumber] = useState('+91');
+    const [phoneNumber, setPhoneNumber] = useState('+91 ');
     const [verificationCode, setVerificationCode] = useState('');
     const [confirm, setConfirm] = useState(null);
+    const [loading, setLoading] = useState(false); // Combined state for loading
+
 
     //function to send OTP to the phone number
     const signInWithPhoneNumber = async () => {
@@ -30,12 +32,14 @@ function PhoneAuthentication({navigation}){
         }
     };
 
+    
     return (
         <View style={styles.container}> 
-        {!confirm ?(
+        {!confirm ?
+            (
             //if confirmation is not sent then showing the phone number input field
             <>
-                <Image source={require('../assets/auth.jpg')} style={{width: 400, height: 500, alignSelf: 'center'}} />
+                <Image source={require('../../assets/auth.jpg')} style={{width: 400, height: 500, alignSelf: 'center'}} />
                 <TextInput
                     style={styles.input}
                     placeholder="Phone Number"
@@ -44,10 +48,12 @@ function PhoneAuthentication({navigation}){
                 />
                 <Button title="Send OTP" onPress={signInWithPhoneNumber} />
             </>
-        ):(
+            ):
+            
+            (
             //if confirmation is sent then showing the verification code input field
             <>
-                <Image source={require('../assets/otp.png')} style={{width: 300, height: 300, alignSelf: 'center',marginBottom:20}} />
+                <Image source={require('../../assets/otp.png')} style={{width: 300, height: 300, alignSelf: 'center',marginBottom:20}} />
                 <TextInput
                     style={styles.input}
                     placeholder="Verification Code"
@@ -56,7 +62,8 @@ function PhoneAuthentication({navigation}){
                 />
                 <Button title="Confirm Code" onPress={confirmCode} />
             </>
-        )}
+            )
+        }
         </View>
     )
 }
