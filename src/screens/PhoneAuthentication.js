@@ -47,6 +47,7 @@ function PhoneAuthentication({navigation}){
         ):(
             //if confirmation is sent then showing the verification code input field
             <>
+                <Image source={require('../assets/otp.png')} style={{width: 300, height: 300, alignSelf: 'center',marginBottom:20}} />
                 <TextInput
                     style={styles.input}
                     placeholder="Verification Code"

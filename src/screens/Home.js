@@ -21,9 +21,9 @@ function Home(){
     };
 
     const addGroups = async () => {
+        setShowDialog(false);
         await firestore().collection('groups').add({name:newGroups,location:location});
         searchGroups();
-        setShowDialog(false);
     }
 
     return (
@@ -49,16 +49,11 @@ function Home(){
                 <Dialog.Title>Add Group</Dialog.Title>
                 <Dialog.Input 
                     value={newGroups}
+                    onChangeText={setNewGroups}
                     placeholder="Enter group name"
                 />
                 <Dialog.Button label="Cancel" onPress={()=>setShowDialog(false)} />
-                <Dialog.Button label="Add" 
-                onPress={
-                    async () => {
-                        setShowDialog(false);
-                        await firestore().collection('groups').add({name:newGroups,location:location});
-                        searchGroups();
-                    }} />
+                <Dialog.Button label="Add" onPress={addGroups} />
 
             </Dialog.Container>
 
