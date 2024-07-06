@@ -10,6 +10,7 @@ function Home(){
     const [newGroups, setNewGroups] = useState([]);
     const [showDialog, setShowDialog] = useState(false);
 
+    //function to search the groups based on the location
     const searchGroups = async () => {
         const querySnapshot = await firestore().collection('groups').where('location', '==', location).get();
         const groups = querySnapshot.docs.map(doc => doc.data());
@@ -20,6 +21,7 @@ function Home(){
         }
     };
 
+    //function to add the groups if there are no groups in the location
     const addGroups = async () => {
         setShowDialog(false);
         await firestore().collection('groups').add({name:newGroups,location:location});
