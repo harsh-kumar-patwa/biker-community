@@ -3,16 +3,20 @@ import { View, TextInput, Button, StyleSheet } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 function PhoneAuthentication({navigation}){
+    //initialising all the states
     const [phoneNumber, setPhoneNumber] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
     const [confirm, setConfirm] = useState(null);
 
+    //function to send OTP to the phone number
     const signInWithPhoneNumber = async () => {
         const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
         setConfirm(confirmation);
     };
 
+    //function to confirm the OTP that was sent to the phone number
     const confirmCode = async()=>{
+        //try-catch block to handle the invalid otp or some error
         try{
             await confirm.confirm(verificationCode);
             navigation.navigate('Home');
@@ -23,8 +27,9 @@ function PhoneAuthentication({navigation}){
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container}> 
         {!confirm ?(
+            //if confirmation is not sent then showing the phone number input field
             <>
                 <TextInput
                     style={styles.input}
@@ -35,6 +40,7 @@ function PhoneAuthentication({navigation}){
                 <Button title="Send OTP" onPress={signInWithPhoneNumber} />
             </>
         ):(
+            //if confirmation is sent then showing the verification code input field
             <>
                 <TextInput
                     style={styles.input}
@@ -48,6 +54,7 @@ function PhoneAuthentication({navigation}){
         </View>
     )
 }
+// a basic styling 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
