@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet ,Image,ActivityIndicator} from 'react-native';
+import { View, TextInput, Button, StyleSheet ,Image} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 function PhoneAuthentication({navigation}){
@@ -7,8 +7,6 @@ function PhoneAuthentication({navigation}){
     const [phoneNumber, setPhoneNumber] = useState('+91 ');
     const [verificationCode, setVerificationCode] = useState('');
     const [confirm, setConfirm] = useState(null);
-    const [loading, setLoading] = useState(false); // Combined state for loading
-
 
     //function to send OTP to the phone number
     const signInWithPhoneNumber = async () => {
